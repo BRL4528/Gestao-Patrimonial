@@ -50,7 +50,7 @@ export const Owner = styled.header`
     max-width: 400px;
   }
 `;
-export const SubmitButton = styled.button.attrs(props => ({
+export const SubmitButton = styled.button.attrs((props) => ({
   type: 'submit',
   disabled: props.loading,
 }))`
@@ -66,7 +66,7 @@ export const SubmitButton = styled.button.attrs(props => ({
     cursor: not-allowed;
     opacity: 0.6;
   }
-  ${props =>
+  ${(props) =>
     props.loading &&
     css`
       svg {
@@ -96,6 +96,11 @@ export const List = styled.ul`
       display: inline;
       padding: 3px 0 !important;
       position: relative;
+    }
+
+    p {
+      flex-direction: row;
+      color: red;
     }
   }
 `;

@@ -1,72 +1,47 @@
-import React, { Component } from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable consistent-return */
+/* eslint-disable radix */
+import React, { useEffect, useState } from 'react';
 
 import {
   AiOutlineApartment,
   AiOutlineSearch,
   AiOutlineLoading,
-  AiFillEdit,
+  // AiFillEdit,
 } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 import api from '../../services/api';
 
 import Container from '../../components/Container';
-import { Form, SubmitButton, List, Owner } from './styles';
+import { List, Owner, Form, SubmitButton } from './styles';
 
-export default class Repository extends Component {
-  // eslint-disable-next-line react/state-in-constructor
-  state = {
-    newRepo: '',
-    repositories: [],
-    loading: false,
-  };
+export default function Repository() {
+  const [detal, setDetal] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  // Carregar dados do local storage
-  componentDidMount() {
-    const repositories = localStorage.getItem('repositories');
+  const url_string = window.location.href;
+  const url = new URL(url_string);
+  const c = url.pathname.slice(-1);
 
-    if (repositories) {
-      this.setState({ repositories: JSON.parse(repositories) });
+  useEffect(() => {
+    async function loadCorpo() {
+      const response = await api.get('relatorio/');
+      // eslint-disable-next-line array-callback-return
+      const data = response.data.map((a) => {
+        if (a.categoria === parseInt(c)) {
+          return a;
+        }
+      });
+
+      setDetal(data);
     }
-  }
+    loadCorpo();
+  }, []);
 
-  // Salvar os dados do local storage
-  componentDidUpdate(_, prevState) {
-    const { repositories } = this.state;
-    if (prevState.repositories !== repositories) {
-      localStorage.setItem('repositories', JSON.stringify(repositories));
-    }
-  }
-
-  handleInputChange = e => {
-    this.setState({ newRepo: e.target.value });
-  };
-
-  handleSubmit = async e => {
-    e.preventDefault();
-
-    this.setState({ loading: true });
-
-    const { newRepo, repositories } = this.state;
-
-    const response = await api.get(`/repos/${newRepo}`);
-
-    const data = {
-      name: response.data.full_name,
-    };
-
-    this.setState({
-      repositories: [...repositories, data],
-      newRepo: '',
-      loading: false,
-    });
-  };
-
-  render() {
-    const { newRepo, loading } = this.state;
-
-    return (
-      <Container>
+  return (
+    <Container>
+      <List>
         <Owner>
           <Link to="/">Voltar para mensagens</Link>
           <img
@@ -80,12 +55,11 @@ export default class Repository extends Component {
           <p>Departamento Agricola</p>
         </Owner>
 
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={() => {}}>
           <input
             type="text"
             placeholder="Digite o numero do patrimonio"
-            value={newRepo}
-            onChange={this.handleInputChange}
+            onChange={() => {}}
           />
           <SubmitButton loading={loading}>
             {loading ? (
@@ -95,42 +69,43 @@ export default class Repository extends Component {
             )}
           </SubmitButton>
         </Form>
-        <List>
-          <li>
-            <span>2180 - PORTA CPU</span>
-            <Link to="/repositoryp/">Detalhes</Link>
+        {/*
+    <List>
+      <li>
+        <span>2180 - PORTA CPU</span>
+        <Link to="/repositoryp/">Detalhes</Link>
+      </li>
+      <li>
+        <span>4528 - Mesa Melanico</span>
+        <Link to="/repository">Detalhes</Link>
+      </li>
+      <li>
+        <span>2832 - Armario Metálico</span>
+        <Link to="/repository">Detalhes</Link>
+      </li>
+      <li>
+        <span>3125 - Notebook dell</span>
+        <Link to="/repositoryp/">Detalhes</Link>
+      </li>
+      <li>
+        <span>4789 - Cadeira Giratória</span>
+        <Link to="/repository">Detalhes</Link>
+      </li>
+      <li>
+        <span>2832 - Armario Metálico</span>
+        <Link to="/repository">Detalhes</Link>
+      </li>
+      */}
+        {detal.map((t) => (
+          <li key={t.id}>
+            <span>{t.descricao}</span>
+            <p>{t.tagConf ? 'Ok' : 'Atenção'}</p>
+            <Link to={`/repository/${encodeURIComponent(t.patrimonio)}`}>
+              Detalhes
+            </Link>
           </li>
-          <li>
-            <span>4528 - Mesa Melanico</span>
-            <Link to="/repository">Detalhes</Link>
-          </li>
-          <li>
-            <span>2832 - Armario Metálico</span>
-            <Link to="/repository">Detalhes</Link>
-          </li>
-          <li>
-            <span>3125 - Notebook dell</span>
-            <Link to="/repositoryp/">Detalhes</Link>
-          </li>
-          <li>
-            <span>4789 - Cadeira Giratória</span>
-            <Link to="/repository">Detalhes</Link>
-          </li>
-          <li>
-            <span>2832 - Armario Metálico</span>
-            <Link to="/repository">Detalhes</Link>
-          </li>
-
-          {/* {repositories.map(repository => (
-            <li key={repository.name}>
-              <span>{repository.name}</span>
-              <Link to={`/repository/${encodeURIComponent(repository.name)}`}>
-                Detalhes
-              </Link>
-            </li>
-          ))} */}
-        </List>
-      </Container>
-    );
-  }
+        ))}
+      </List>
+    </Container>
+  );
 }

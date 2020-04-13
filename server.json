@@ -1,0 +1,58 @@
+{
+  "mensagem": [
+     { "id": 1,
+       "title": "Conferencia Patrimonial 03/2020",
+        "assunto": "patrimonio",
+        "author": "Bruno Luiz",
+         "corpo": "Verificar patrimonios contidos no setor",
+         "categoria": 1
+     },
+     { "id": 2,
+      "title": "Conferencia Patrimonial 06/2020",
+       "assunto": "patrimonio",
+       "author": "Bruno Luiz",
+        "corpo": "Verificar patrimonios contidos no setor",
+        "categoria": 1
+    }
+
+  ],
+  "relatorio": [
+    {
+
+      "id": 2,
+      "patrimonio": 1235,
+      "descricao": "Cadeira Com base em S",
+      "tagConferencia": false,
+      "categoria": 1,
+      "tagConf": false
+   },
+   {
+
+    "id": 3,
+    "patrimonio": 1235,
+    "descricao": "Notbook",
+    "tagConferencia": false,
+    "categoria": 1,
+    "tagConf": true
+  },
+ {
+
+  "id": 4,
+  "patrimonio": 1235,
+  "descricao": "Mesa melamico",
+  "tagConferencia": false,
+  "categoria": 1,
+  "tagConf": false
+},
+{
+
+"id": 5,
+"patrimonio": 1235,
+"descricao": "Armario metalico ",
+"tagConferencia": false,
+"categoria": 1,
+"tagConf": false
+}
+  ]
+
+}
