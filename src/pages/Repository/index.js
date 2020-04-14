@@ -2,6 +2,8 @@
 /* eslint-disable consistent-return */
 /* eslint-disable radix */
 import React, { useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import {
   AiOutlineApartment,
@@ -14,11 +16,13 @@ import { Link } from 'react-router-dom';
 import api from '../../services/api';
 
 import Container from '../../components/Container';
-import { List, Owner, Form, SubmitButton } from './styles';
+import { List, Owner, Form, SubmitButton, Tab } from './styles';
 
 export default function Repository() {
   const [detal, setDetal] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [patri, setPatrimonio] = useState('');
+  const [novo, setNovo] = useState([]);
 
   const url_string = window.location.href;
   const url = new URL(url_string);
@@ -37,10 +41,57 @@ export default function Repository() {
       setDetal(data);
     }
     loadCorpo();
-  }, []);
+  }, [loading]);
+
+  function handleInputChange(e) {
+    setPatrimonio(e.target.value);
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setLoading(true);
+    const response = await api.get('relatorio/');
+    // eslint-disable-next-line array-callback-return
+    const data = response.data.find((a) => a.patrimonio === patri);
+    if (data !== undefined) {
+      if (data.tagConf === true) {
+        toast.warn('Patrimonio já identificado');
+        setLoading(false);
+        return;
+      }
+      data.tagConf = true;
+    } else {
+      toast.error('Bem Não existe nos cadastro');
+      setLoading(false);
+      return;
+    }
+    toast.success('Bem Identificado');
+    setNovo(data);
+  }
+
+  useEffect(() => {
+    if (novo.id !== undefined) {
+      // eslint-disable-next-line no-inner-declarations
+      async function loadPatrimonio() {
+        await api.put(`relatorio/${novo.id}`, {
+          id: novo.id,
+          patrimonio: novo.patrimonio,
+          descricao: novo.descricao,
+          tagConferencia: novo.tagConferencia,
+          categoria: novo.categoria,
+          tagConf: novo.tagConf,
+        });
+      }
+
+      loadPatrimonio();
+      setPatrimonio([novo.id]);
+      setLoading(false);
+    }
+  }, [novo]);
 
   return (
     <Container>
+      <ToastContainer />
       <List>
         <Owner>
           <Link to="/">Voltar para mensagens</Link>
@@ -55,11 +106,11 @@ export default function Repository() {
           <p>Departamento Agricola</p>
         </Owner>
 
-        <Form onSubmit={() => {}}>
+        <Form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Digite o numero do patrimonio"
-            onChange={() => {}}
+            onChange={handleInputChange}
           />
           <SubmitButton loading={loading}>
             {loading ? (
@@ -69,41 +120,21 @@ export default function Repository() {
             )}
           </SubmitButton>
         </Form>
-        {/*
-    <List>
-      <li>
-        <span>2180 - PORTA CPU</span>
-        <Link to="/repositoryp/">Detalhes</Link>
-      </li>
-      <li>
-        <span>4528 - Mesa Melanico</span>
-        <Link to="/repository">Detalhes</Link>
-      </li>
-      <li>
-        <span>2832 - Armario Metálico</span>
-        <Link to="/repository">Detalhes</Link>
-      </li>
-      <li>
-        <span>3125 - Notebook dell</span>
-        <Link to="/repositoryp/">Detalhes</Link>
-      </li>
-      <li>
-        <span>4789 - Cadeira Giratória</span>
-        <Link to="/repository">Detalhes</Link>
-      </li>
-      <li>
-        <span>2832 - Armario Metálico</span>
-        <Link to="/repository">Detalhes</Link>
-      </li>
-      */}
         {detal.map((t) => (
-          <li key={t.id}>
+          <Tab key={t.id} tagConf={t.tagConf}>
             <span>{t.descricao}</span>
-            <p>{t.tagConf ? 'Ok' : 'Atenção'}</p>
+            <p>
+              {t.tagConf ? 'Ok' : 'Atenção'}
+              <label>
+                {t.tagConf
+                  ? `Patrimonio: ${t.patrimonio}`
+                  : 'Verificação Pendente'}
+              </label>
+            </p>
             <Link to={`/repository/${encodeURIComponent(t.patrimonio)}`}>
               Detalhes
             </Link>
-          </li>
+          </Tab>
         ))}
       </List>
     </Container>

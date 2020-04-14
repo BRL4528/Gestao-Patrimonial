@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 import { AiOutlineApartment } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { List } from './styles';
 
 export default function Main() {
   const [mensagem, setMensagem] = useState([]);
+  const [calc, setCalc] = useState([]);
 
   useEffect(() => {
     async function loadMensagem() {
@@ -26,8 +27,32 @@ export default function Main() {
     }
     loadMensagem();
   }, []);
+
+  useEffect(() => {
+    async function loadPendencias() {
+      const response = await api.get('relatorio/');
+      const { data } = response;
+
+      // eslint-disable-next-line no-plusplus
+      const v = [];
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].tagConf !== true) {
+          v.push(data[i]);
+        }
+      }
+      setCalc(v);
+    }
+    loadPendencias();
+  }, []);
+
+  const size = useMemo(() => calc.length, [calc]);
   return (
-    <Container>
+    <Container size={size}>
+      <h3>
+        {size === 0
+          ? 'Você não possui Pendências'
+          : `Você posui ${size} pendências`}
+      </h3>
       <h1>
         <AiOutlineApartment />
         Gestão Patrimonial

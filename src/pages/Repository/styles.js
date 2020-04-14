@@ -77,30 +77,64 @@ export const SubmitButton = styled.button.attrs((props) => ({
 export const List = styled.ul`
   list-style: none;
   margin-top: 30px;
-  li {
-    padding: 15px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    & + li {
-      border-top: 1px solid #eee;
-    }
-    a {
-      color: #7159c1;
-      text-decoration: none;
-    }
-    span {
-      box-shadow: 35px 0 0 0 #00ff00, -5px 0 0 0 #00ff00;
-      background: #00ff00;
-      display: inline;
-      padding: 3px 0 !important;
-      position: relative;
-    }
+`;
+export const Tab = styled.li`
+  padding: 15px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  & + li {
+    border-top: 1px solid #eee;
+  }
+  a {
+    color: #7159c1;
+    text-decoration: none;
+  }
+  span {
+    box-shadow: 35px;
+    max-width: 230px;
+    max-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline;
+    padding: 3px 0 !important;
+    position: relative;
+  }
+  p {
+    transition: 3s;
+    display: inline;
 
-    p {
-      flex-direction: row;
-      color: red;
+    color: ${(props) => (props.tagConf ? 'green' : '	#8B0000')};
+    margin-left: 20%;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    margin-top: -10px;
+    background: ${(props) => (props.tagConf ? '	#98FB98' : '#FFC0CB')};
+    padding: 4px;
+    border-radius: 4px;
+
+    label {
+      transition: 3s;
+      display: inline;
+      text-align: center;
+      color: ${(props) => (props.tagConf ? 'green' : '	#8B0000')};
+      margin-left: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      position: absolute;
+      margin-top: -3px;
+      width: 150px;
+      background: ${(props) => (props.tagConf ? '	#98FB98' : '#FFFF00')};
+      padding: 4px;
+      border-radius: 4px;
+
+      @media (max-width: 700px) {
+        label {
+          display: none;
+        }
+      }
     }
   }
 `;

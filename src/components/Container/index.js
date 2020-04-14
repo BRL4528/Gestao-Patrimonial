@@ -13,5 +13,19 @@ const Container = styled.div`
     flex-direction: row;
     align-items: center;
   }
+  h3 {
+    transition: 3s;
+    display: inline;
+    text-align: center;
+    color: ${(props) => (props.size === 0 ? 'green' : '	#8B0000')};
+    margin: -70px -30px;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    width: 150px;
+    background: ${(props) => (props.size === 0 ? '	#98FB98' : '#FFFF00')};
+    padding: 4px;
+    border-radius: 4px;
+  }
 `;
 export default Container;
