@@ -12,6 +12,9 @@ export const Form = styled.form`
     font-size: 16px;
   }
 `;
+export const Header = styled.div`
+  flex-direction: row;
+`;
 const rotate = keyframes`
 from {
 transform: rotate(0deg)

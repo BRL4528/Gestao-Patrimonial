@@ -7,11 +7,12 @@ import { Link } from 'react-router-dom';
 import api from '~/services/api';
 
 import Container from '~/components/Container';
-import { List } from './styles';
+import { List, Header } from './styles';
 
 export default function Main() {
   const [mensagem, setMensagem] = useState([]);
   const [calc, setCalc] = useState([]);
+  const [solit, setSolit] = useState([]);
 
   useEffect(() => {
     async function loadMensagem() {
@@ -45,14 +46,39 @@ export default function Main() {
     loadPendencias();
   }, []);
 
+  useEffect(() => {
+    async function loadSolicitações() {
+      const response = await api.get('solicitacao/');
+      const { data } = response;
+
+      // eslint-disable-next-line no-plusplus
+      const v = [];
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].situação === 'aberta') {
+          v.push(data[i]);
+        }
+      }
+      setSolit(v);
+    }
+    loadSolicitações();
+  }, []);
+  const msg = useMemo(() => solit.length, [solit]);
   const size = useMemo(() => calc.length, [calc]);
+
   return (
-    <Container size={size}>
-      <h3>
-        {size === 0
-          ? 'Você não possui Pendências'
-          : `Você posui ${size} pendências`}
-      </h3>
+    <Container msg={msg} size={size}>
+      <Header>
+        <h3>
+          {size === 0
+            ? 'Você não possui Pendências'
+            : `Você posui ${size} pendências`}
+        </h3>
+        <h2>
+          {msg === 0
+            ? 'Você não possui Solicitações abertas'
+            : `Você posui ${msg} solicitações abertas`}
+        </h2>
+      </Header>
       <h1>
         <AiOutlineApartment />
         Gestão Patrimonial

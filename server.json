@@ -14,23 +14,29 @@
       "id": 2,
       "patrimonio": "2473",
       "descricao": "BANCADA - MATRIZ - DEP. TI",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRNH3GE9NPB8y2aBjpUVq9jioGV2B749nHcmqqedvNqtDMptx3u&usqp=CAU",
       "categoria": 1,
-      "tagConf": false
+      "tagConf": true
     },
     {
       "id": 3,
       "patrimonio": "510",
       "descricao": "CADEIRA",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTl9MI5Fa3hrLrxzMDOxjyBLxFC2YajYasgG2c2ImJjzz6oSUj0&usqp=CAU",
       "categoria": 1,
-      "tagConf": false
+      "tagConf": true
     },
     {
       "id": 4,
       "patrimonio": "3652",
       "descricao": "CADEIRA DIRETOR GIRATÓRIA PETHIFLEX - MATRIZ - T.I.",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAaXl6v8-jZCoMF0eLoxig5nZYGhXXlRJqpSErbY6_XHrT-QYQ&usqp=CAU",
       "categoria": 1,
       "tagConf": false
     },
@@ -38,7 +44,9 @@
       "id": 5,
       "patrimonio": "3733",
       "descricao": "CADEIRA EXECUTIVA GIRATORIA C/ BRAÇO DIGIT. MOV. FLEX - T.I",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRDB5as0YhBgPqt8TAviE7dvEniUTrUrI8Y98jU1bevyM-iETZW&usqp=CAU",
       "categoria": 1,
       "tagConf": false
     },
@@ -46,31 +54,39 @@
       "id": 6,
       "patrimonio": "429",
       "descricao": "CADEIRA PARANA DIGITADOR GIRAT - BRUNO",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTl9MI5Fa3hrLrxzMDOxjyBLxFC2YajYasgG2c2ImJjzz6oSUj0&usqp=CAU",
       "categoria": 1,
-      "tagConf": false
+      "tagConf": true
     },
     {
       "id": 7,
       "patrimonio": "2471",
       "descricao": "COND. EXT. 12.000 SPRINGER - MATRIZ - TI",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTl9MI5Fa3hrLrxzMDOxjyBLxFC2YajYasgG2c2ImJjzz6oSUj0&usqp=CAU",
       "categoria": 1,
-      "tagConf": false
+      "tagConf": true
     },
     {
       "id": 8,
       "patrimonio": "2398",
       "descricao": "CONDICIONADOR - T.I",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTMPWXxF5QdYc6EK7yohMwBMZk17PphXlf94908kSJCCwFJZ7rv&usqp=CAU",
       "categoria": 1,
-      "tagConf": false
+      "tagConf": true
     },
     {
       "id": 9,
       "patrimonio": "2398-1",
       "descricao": "EVAPORIZADOR - T.I",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT4f-pmeaPoXR5AcQTY4ZAvxe83wa2iYybdDCQdmx79vpfHbJKA&usqp=CAU",
       "categoria": 1,
       "tagConf": false
     },
@@ -78,7 +94,9 @@
       "id": 10,
       "patrimonio": "2471-1",
       "descricao": "EVAPORIZADOR INT. 12.000 SPRINGER - MATRIZ - TI",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRBXxLWIe4B5HqY1LWyYVolJ7k-xRTxV4yj0gDLIjRz4WYmNusp&usqp=CAU",
       "categoria": 1,
       "tagConf": false
     },
@@ -86,7 +104,9 @@
       "id": 11,
       "patrimonio": "201444",
       "descricao": "GARANTIA SERVIDOR DELL R730 - 03 ANOS SERVIDORES NOVOS",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "",
       "categoria": 1,
       "tagConf": false
     },
@@ -94,10 +114,61 @@
       "id": 12,
       "patrimonio": "2651",
       "descricao": "GAVETEIRO C/2 GAVETAS PRATA - MATRIZ - TI",
-      "tagConferencia": false,
+      "danfe": "0000000",
+      "dataCad": "01/01/2020",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQtXP6nPiMxZS35H8mOKK7i6fX7uZ0eZj55xD8XDiwI2M4IqcEx&usqp=CAU",
       "categoria": 1,
       "tagConf": false
     }
-
+  ],
+  "solicitacao": [
+    {
+      "tipo": 1,
+      "body": "ouuu",
+      "patrimonio": "2473",
+      "data": "2020-04-15T19:28:18.111Z",
+      "situação": "fechada",
+      "id": 4
+    },
+    {
+      "tipo": 2,
+      "body": "depreciado",
+      "patrimonio": "2473",
+      "data": "2020-04-15T20:03:23.635Z",
+      "situação": "fechada",
+      "id": 5
+    },
+    {
+      "tipo": 1,
+      "body": "Preciso de uma nova etiqueta",
+      "patrimonio": "3733",
+      "data": "2020-04-15T20:13:15.507Z",
+      "situação": "fechada",
+      "id": 6
+    },
+    {
+      "tipo": 1,
+      "body": "twe",
+      "patrimonio": "3733",
+      "data": "2020-04-15T21:02:09.494Z",
+      "situação": "aberta",
+      "id": 7
+    },
+    {
+      "tipo": 2,
+      "body": "re",
+      "patrimonio": "510",
+      "data": "2020-04-15T21:03:17.725Z",
+      "situação": "aberta",
+      "id": 8
+    },
+    {
+      "tipo": 3,
+      "body": "Cereais ",
+      "patrimonio": "510",
+      "data": "2020-04-15T21:03:29.519Z",
+      "situação": "aberta",
+      "id": 9
+    }
   ]
 }

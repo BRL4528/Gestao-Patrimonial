@@ -26,6 +26,22 @@ const Container = styled.div`
     background: ${(props) => (props.size === 0 ? '	#98FB98' : '#FFFF00')};
     padding: 4px;
     border-radius: 4px;
+    cursor: pointer;
+  }
+  h2 {
+    transition: 3s;
+    display: inline;
+    text-align: center;
+    color: ${(props) => (props.msg === 0 ? 'green' : '	#8B0000')};
+    margin: -70px 122px;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    width: 150px;
+    background: ${(props) => (props.msg === 0 ? '	#98FB98' : '#FFFF00')};
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
   }
 `;
 export default Container;

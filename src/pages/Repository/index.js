@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-unused-vars */
 /* eslint-disable consistent-return */
 /* eslint-disable radix */
@@ -77,7 +78,10 @@ export default function Repository() {
           id: novo.id,
           patrimonio: novo.patrimonio,
           descricao: novo.descricao,
-          tagConferencia: novo.tagConferencia,
+          danfe: '0000000',
+          dataCad: '01/01/2020',
+          url:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTl9MI5Fa3hrLrxzMDOxjyBLxFC2YajYasgG2c2ImJjzz6oSUj0&usqp=CAU',
           categoria: novo.categoria,
           tagConf: novo.tagConf,
         });
@@ -131,7 +135,7 @@ export default function Repository() {
                   : 'Verificação Pendente'}
               </label>
             </p>
-            <Link to={`/repository/${encodeURIComponent(t.patrimonio)}`}>
+            <Link to={`/description/${encodeURIComponent(t.patrimonio)}`}>
               Detalhes
             </Link>
           </Tab>

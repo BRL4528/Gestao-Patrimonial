@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Main from './pages/Main';
 import Repository from './pages/Repository';
+import Description from './pages/Description';
 
 export default function Routes() {
   return (
@@ -10,6 +11,7 @@ export default function Routes() {
       <Switch>
         <Route path="/" exact component={Main} />
         <Route path="/repository" component={Repository} />
+        <Route path="/description" component={Description} />
       </Switch>
     </BrowserRouter>
   );
