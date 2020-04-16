@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 /* eslint-disable consistent-return */
 import React, { useState, useEffect, useMemo } from 'react';
 
@@ -8,6 +9,8 @@ import api from '~/services/api';
 
 import Container from '~/components/Container';
 import { List, Header } from './styles';
+
+import Manu from '../../components/Header';
 
 export default function Main() {
   const [mensagem, setMensagem] = useState([]);
@@ -34,8 +37,8 @@ export default function Main() {
       const response = await api.get('relatorio/');
       const { data } = response;
 
-      // eslint-disable-next-line no-plusplus
       const v = [];
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < data.length; i++) {
         if (data[i].tagConf !== true) {
           v.push(data[i]);
@@ -51,8 +54,8 @@ export default function Main() {
       const response = await api.get('solicitacao/');
       const { data } = response;
 
-      // eslint-disable-next-line no-plusplus
       const v = [];
+      // eslint-disable-next-line no-plusplus
       for (let i = 0; i < data.length; i++) {
         if (data[i].situação === 'aberta') {
           v.push(data[i]);
@@ -66,34 +69,37 @@ export default function Main() {
   const size = useMemo(() => calc.length, [calc]);
 
   return (
-    <Container msg={msg} size={size}>
-      <Header>
-        <h3>
-          {size === 0
-            ? 'Você não possui Pendências'
-            : `Você posui ${size} pendências`}
-        </h3>
-        <h2>
-          {msg === 0
-            ? 'Você não possui Solicitações abertas'
-            : `Você posui ${msg} solicitações abertas`}
-        </h2>
-      </Header>
-      <h1>
-        <AiOutlineApartment />
-        Gestão Patrimonial
-      </h1>
-      <p>Departamento Agricola</p>
-      <List>
-        {mensagem.map((msg) => (
-          <li key={msg.id}>
-            <span>{msg.title}</span>
-            <Link to={`/repository/${encodeURIComponent(msg.categoria)}`}>
-              Detalhes
-            </Link>
-          </li>
-        ))}
-      </List>
-    </Container>
+    <>
+      <Manu />
+      <Container msg={msg} size={size}>
+        <Header>
+          <h3>
+            {size === 0
+              ? 'Você não possui Pendências'
+              : `Você posui ${size} pendências`}
+          </h3>
+          <h2>
+            {msg === 0
+              ? 'Você não possui Solicitações abertas'
+              : `Você posui ${msg} solicitações abertas`}
+          </h2>
+        </Header>
+        <h1>
+          <AiOutlineApartment />
+          Gestão Patrimonial
+        </h1>
+        <p>Departamento Agricola</p>
+        <List>
+          {mensagem.map((msg) => (
+            <li key={msg.id}>
+              <span>{msg.title}</span>
+              <Link to={`/repository/${encodeURIComponent(msg.categoria)}`}>
+                Detalhes
+              </Link>
+            </li>
+          ))}
+        </List>
+      </Container>
+    </>
   );
 }

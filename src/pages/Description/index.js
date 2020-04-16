@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { AiOutlineLoading, AiOutlineCloseCircle } from 'react-icons/ai';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 import { toast, ToastContainer } from 'react-toastify';
 
