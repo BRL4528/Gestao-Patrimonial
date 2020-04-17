@@ -16,7 +16,7 @@ html, body, #too {
   min-height: 100%;
 }
 body {
-  background: #27408B;
+  background: linear-gradient(100deg, #27408B, #3b9eff);
   -webkit-font-smoothing: antialiased !important;
 }
 body, input, button {

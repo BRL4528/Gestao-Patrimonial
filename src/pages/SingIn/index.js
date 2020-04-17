@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
+import { Wrapper, Content } from '../_layouts/auth/styles';
+
 // import { signInRequest } from '~/store/modules/auth/actions';
 
-// import logo from '~/assets/logo.svg';
+import logo from '../../assets/img/2.png';
 
 const schema = Yup.object().shape({
   email: Yup.string()
@@ -24,19 +26,23 @@ export default function SingIn() {
   // }
   return (
     <>
-      {/* <img src={logo} alt="GoBarber" /> */}
+      <Wrapper>
+        <Content>
+          <img src={logo} alt="GoBarber" />
 
-      <Form schema={schema} onSubmit={() => {}}>
-        <Input name="email" type="email" placeholder="Seu e-mail" />
-        <Input
-          name="password"
-          type="password"
-          placeholder="Sua senha secreta"
-        />
+          <Form schema={schema} onSubmit={() => {}}>
+            <Input name="email" type="email" placeholder="Seu e-mail" />
+            <Input
+              name="password"
+              type="password"
+              placeholder="Sua senha secreta"
+            />
 
-        <button type="submit">Acessar</button>
-        <Link to="/register">Criar conta gratuita</Link>
-      </Form>
+            <button type="submit">Acessar</button>
+            <Link to="/dashboard">Criar conta gratuita</Link>
+          </Form>
+        </Content>
+      </Wrapper>
     </>
   );
 }

@@ -38,7 +38,7 @@ export default function SingUp() {
         />
 
         <button type="submit">Criar conta</button>
-        <Link to="/">Já tenho login</Link>
+        <Link to="/d">Já tenho login</Link>
       </Form>
     </>
   );

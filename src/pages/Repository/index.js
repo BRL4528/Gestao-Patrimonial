@@ -109,7 +109,7 @@ export default function Repository() {
             />
             <h1>
               <AiOutlineApartment />
-              Gestão Patrimonial
+              Quadro de Patrimônios
             </h1>
             <p>Departamento Agricola</p>
           </Owner>

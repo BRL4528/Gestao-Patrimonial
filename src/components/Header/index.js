@@ -7,6 +7,8 @@ import { AiOutlineApartment } from 'react-icons/ai';
 
 import { Container, Profile, Content } from './styles';
 
+import user from '../../assets/img/3.jpg';
+
 export default function Header() {
   // const profile = useSelector((state) => state.user.profile);
 
@@ -26,13 +28,10 @@ export default function Header() {
 
           <Profile>
             <div>
-              <strong>Nome Usuario</strong>
+              <strong>Bruno Luiz</strong>
               <Link to="/profile">Meu perfil</Link>
             </div>
-            <img
-              src="https://api.adorable.io/avatars/50/abott@adorable.png"
-              alt=""
-            />
+            <img src={user} alt="" />
           </Profile>
         </aside>
       </Content>

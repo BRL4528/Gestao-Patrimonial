@@ -73,20 +73,12 @@ export default function Main() {
       <Manu />
       <Container msg={msg} size={size}>
         <Header>
-          <h3>
-            {size === 0
-              ? 'Você não possui Pendências'
-              : `Você posui ${size} pendências`}
-          </h3>
-          <h2>
-            {msg === 0
-              ? 'Você não possui Solicitações abertas'
-              : `Você posui ${msg} solicitações abertas`}
-          </h2>
+          <h3>{size === 0 ? '' : `Você posui ${size} pendências`}</h3>
+          <h2>{msg === 0 ? '' : `Você posui ${msg} solicitações abertas`}</h2>
         </Header>
         <h1>
           <AiOutlineApartment />
-          Gestão Patrimonial
+          Gestão organizacional
         </h1>
         <p>Departamento Agricola</p>
         <List>
