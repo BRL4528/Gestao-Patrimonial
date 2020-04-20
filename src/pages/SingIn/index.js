@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 
 import { Wrapper, Content } from '../_layouts/auth/styles';
 
-// import { signInRequest } from '~/store/modules/auth/actions';
+import { signInRequest } from '~/store/modules/auth/actions';
 
 import logo from '../../assets/img/2.png';
 
@@ -18,19 +18,19 @@ const schema = Yup.object().shape({
 });
 
 export default function SingIn() {
-  // const dispatch = useDispatch();
-  // const loading = useSelector((state) => state.auth.loading);
+  const dispatch = useDispatch();
+  const loading = useSelector((state) => state.auth.loading);
 
-  // function handleSubmit({ email, password }) {
-  //   dispatch(signInRequest(email, password));
-  // }
+  function handleSubmit({ email, password }) {
+    dispatch(signInRequest(email, password));
+  }
   return (
     <>
       <Wrapper>
         <Content>
-          <img src={logo} alt="GoBarber" />
+          <img src={logo} alt="cooasgo" />
 
-          <Form schema={schema} onSubmit={() => {}}>
+          <Form schema={schema} onSubmit={handleSubmit}>
             <Input name="email" type="email" placeholder="Seu e-mail" />
             <Input
               name="password"
@@ -38,8 +38,10 @@ export default function SingIn() {
               placeholder="Sua senha secreta"
             />
 
-            <button type="submit">Acessar</button>
-            <Link to="/dashboard">Criar conta gratuita</Link>
+            <button type="submit">
+              {loading ? 'Carregando...' : 'Acessar'}
+            </button>
+            <Link to="/register">Criar conta gratuita</Link>
           </Form>
         </Content>
       </Wrapper>
